@@ -93,6 +93,16 @@
 			}
 			this._domEvents = {};
 			return this;
+		},
+
+		// Creates the `this.el` and `this.$el` references for this view using the
+		// given `el` and a hash of `attributes`. `el` can be a CSS selector or an
+		// HTML string, a jQuery context or an element. Subclasses can override
+		// this to utilize an alternative DOM manipulation API and are only required
+		// to set the `this.el` property.
+		_setElement: function(el) {
+			this.$el = dominus(el);
+			this.el = this.$el[0];
 		}
 
 	};
