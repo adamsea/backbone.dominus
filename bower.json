@@ -1,0 +1,29 @@
+{
+  "name": "backbone.dominus",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adamsea/backbone.dominus",
+  "authors": [
+    "Eric Adams <adams.ea@gmail.com>"
+  ],
+  "description": "Backbone adapter for the dominus DOM manipulation framework.",
+  "main": "backbone.dominus.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "backbone",
+    "dominus"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.1",
+    "dominus": "~5.0.0"
+  }
+}
