@@ -24,7 +24,8 @@
   ],
   "dependencies": {
     "backbone": "~1.2.1",
-    "dominus": "~5.0.0"
+    "dominus": "~5.0.0",
+    "reqwest": "~1.1.5"
   },
   "devDependencies": {
     "qunit": "~1.18.0",
