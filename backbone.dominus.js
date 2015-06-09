@@ -68,7 +68,10 @@
             if (this._domEvents[uniqEventName]) {
                 // Find any handlers in the event namespace
                 var handlers = this._domEvents[uniqEventName].slice();
-                for (var i = 0, len = handlers.length; i < len; i+=1) {
+                var i = handlers.length;
+                while (i) {
+                    i -= 1;
+
                     // Remove any events macthing the selector and listener
                     item = handlers[i];
                     if (item.selector === selector && item.listener === listener) {
