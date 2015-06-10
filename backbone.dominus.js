@@ -94,7 +94,7 @@
         undelegateEvents: function() {
             var item;
             for (var uniqEventName in this._domEvents) {
-                if (this._domEvents.hasOwnProperty[uniqEventName]) {
+                if (this._domEvents.hasOwnProperty(uniqEventName)) {
                     var handlers = this._domEvents[uniqEventName].slice();
                     var eventName = uniqEventName.split('.')[0];
                     for (var i = 0, len = handlers.length; i < len; i+=1) {
