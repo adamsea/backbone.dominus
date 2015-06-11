@@ -8,7 +8,10 @@ bower install backbone.dominus
 ```
 
 ### Loading
-Will work with AMD, CommonJS, and also adds Backbone.DomView to the root.Backbone object.
+Will work with AMD, CommonJS, and also adds `Backbone.DomView` to the root Backbone object.
+
+#### Loading Backbone.$
+By default Backbone will try to `require('jquery')` and load the global jQuery object `$` into `Backbone.$`.  For AMD you can set up require path configs to point jquery to dominus, and for CommonJS you can use [aliasify](https://github.com/benbria/aliasify) to do the same.
 
 ### Dependencies
 * [Dominus](https://github.com/bevacqua/dominus) for dom querying and view.$el abstractions
