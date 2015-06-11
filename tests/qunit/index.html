@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Backbone.Dominus</title>
-	<link rel="stylesheet" href="../../bower_components/qunit/qunit/qunit.css">
+    <meta charset="utf-8">
+    <title>Backbone.Dominus</title>
+    <link rel="stylesheet" href="../../bower_components/qunit/qunit/qunit.css">
 </head>
 <body>
-	<div id="qunit"></div>
-	<div id="qunit-fixture"></div>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
 
-	<!-- Qunit deps -->
-	<script src="../../bower_components/qunit/qunit/qunit.js"></script>
-	<script src="../../bower_components/sinon/index.js"></script>
-	<script src="../../bower_components/sinon-qunit/index.js"></script>
+    <script>
+        // This is for the PhantomJS test runner.
+        if (!Function.prototype.bind) {
+          Function.prototype.bind = function(oThis) {
+            if (typeof this !== 'function') {
+              // closest thing possible to the ECMAScript 5
+              // internal IsCallable function
+              throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+            }
 
-	<!-- Backbone deps -->
-	<script src="../../bower_components/underscore/underscore.js"></script>
-	<script src="../../bower_components/backbone/backbone.js"></script>
-	<script src="../../bower_components/dominus/dist/dominus.js"></script>
-	<script src="../../bower_components/reqwest/reqwest.js"></script>
-	<script src="../../backbone.dominus.js"></script>
+            var aArgs   = Array.prototype.slice.call(arguments, 1),
+                fToBind = this,
+                fNOP    = function() {},
+                fBound  = function() {
+                  return fToBind.apply(this instanceof fNOP
+                         ? this
+                         : oThis,
+                         aArgs.concat(Array.prototype.slice.call(arguments)));
+                };
 
-	<!-- Tests -->
-	<script src="./backbone.dominus.js"></script>
+            fNOP.prototype = this.prototype;
+            fBound.prototype = new fNOP();
+
+            return fBound;
+          };
+        }
+    </script>
+
+    <!-- Qunit deps -->
+    <script src="../../bower_components/qunit/qunit/qunit.js"></script>
+    <script src="../../bower_components/sinon/index.js"></script>
+    <script src="../../bower_components/sinon-qunit/index.js"></script>
+
+    <!-- Backbone deps -->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+    <script src="../../bower_components/backbone/backbone.js"></script>
+    <script src="../../bower_components/dominus/dist/dominus.js"></script>
+    <script src="../../bower_components/reqwest/reqwest.js"></script>
+    <script src="../../backbone.dominus.js"></script>
+
+    <!-- Tests -->
+    <script src="./backbone.dominus.js"></script>
 </body>
 </html>

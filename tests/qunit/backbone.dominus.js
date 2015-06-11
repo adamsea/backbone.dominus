@@ -103,8 +103,8 @@
         assert.ok(view.$el.off.calledThrice, 'All events were removed from the dom for the view');
     });
 
-    // Test setElement through dominus
-    QUnit.test('Test _setElement', function(assert) {
+    // Test setElement through dominus - element
+    QUnit.test('Test _setElement with element instance', function(assert) {
         var fixture = document.getElementById('qunit-fixture');
         var elem = document.createElement('div');
         elem.className = 'my-element';
@@ -112,13 +112,24 @@
         fixture.appendChild(elem);
         var view = new this.view();
 
-        // With dom element instance
+        // With dom element instance in fixture
         view._setElement(elem);
         assert.deepEqual(view.$el, [elem], 'The collection is used for the view $el');
         assert.deepEqual(view.el, elem, 'The element is used for the view el');
+    });
 
-        // With selector
-        view.$el = view.el = null;
+    // Test setElement through dominus - selector
+    QUnit.test('Test _setElement with selector', function(assert) {
+        var view = new this.view();
+        var elem = document.createElement('div');
+        elem.className = 'my-element';
+        elem.textContent = 'Here is some text';
+        this.stub(dominus, 'find')
+            .withArgs('.my-element')
+            .returns([elem]);
+
+        // With dom element selector - dominus
+        // stubbed to avoid phantomjs-specific issue in qsa lookup
         view._setElement('.my-element');
         assert.deepEqual(view.$el, [elem], 'The collection is used for the view $el');
         assert.deepEqual(view.el, elem, 'The element is used for the view el');
