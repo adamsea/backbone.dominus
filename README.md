@@ -8,10 +8,14 @@ bower install backbone.dominus
 ```
 
 ### Loading
-Will work with AMD, CommonJS, and also adds `Backbone.DomView` to the `root.Backbone` object.
+Will work with AMD, CommonJS, and also adds Backbone.DomView to the root.Backbone object.
+
+### Dependencies
+* [Dominus](https://github.com/bevacqua/dominus) for dom querying and view.$el abstractions
+* [Reqwest](https://github.com/ded/reqwest) for Backbone.ajax functionality
 
 ## Usage
-A new view type is exposed called `Backbone.DomView` and can be extended.  See [Backbone.NativeView](https://github.com/akre54/Backbone.NativeView) for other examples.
+A new view type is exposed called Backbone.DomView and can be extended.  See [Backbone.NativeView](https://github.com/akre54/Backbone.NativeView) for other examples.
 ```
 var view = Backbone.DomView.extend({
    //...
@@ -38,7 +42,7 @@ Backbone.NativeView is a great reference example for building a [jQuery-free Bac
 
 [Dominus](https://github.com/bevacqua/dominus) is a good general-purpose DOM querying and manipulation library that will handle the following:
 
-* Context-rooted queries in qSA - properly scoped lookup of `view.$el` sub-elements
+* Context-rooted queries in qSA - properly scoped lookup of view.$el sub-elements
 * Event normalization - manages both attachEvent and addEventListener
 * A jQuery-like fluent api for managing the DOM
 
